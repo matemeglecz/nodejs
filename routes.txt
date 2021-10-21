@@ -1,0 +1,60 @@
+Kalózok és kalózhajók
+    index.html - táblázat a hajókról (edit, delete, kalózok gomb), új hajó gomb
+    editship.html - hajó adat edit, save, cancel
+    pirates.html - táblázat a kalózokról (edit, delete), új kalóz gomb
+    editpirate.html - kalóz adat edit, save, cancel
+
+Routing
+
+renderMW
+
+middlewares/ship/
+    getShipsMW.js
+    getShipMW.js
+    saveShipMW.js
+    delShipMW.js
+
+middlewares/pirate/
+    getPiratesMW.js
+    getPirateMW.js
+    savePirateMW.js
+    delPirateMW.js
+
+
+GET /                                       - kalózhajók lista
+    getShipsMW
+    renderMW(index.html)
+
+GET, POST /new                              - új hajó hozzáadása
+    saveShipMW
+    renderMW(editship.html)
+
+GET, POST /edit/:shipid                     - hajó szerkesztése
+    getShipMW
+    saveShipMW                              - ha nem kap semmit akkor next, ha kap valamit megpróbál menteni, ha mentésnél hiba akkor változókba elmenti és next, ha sikerül akkor visszairányít a hajók listához
+    renderMW(editship.html)                 - ha kap valamit akkor azzal feltölti a formot
+
+GET /del/:shipid                            - hajó törlése
+    getShipMW
+    delShipMW
+
+GET /pirates/:shipid                        - kalózok lista
+    getShipMW
+    getPiratesMW
+    renderMW(pirates.html)
+
+GET, POST /pirates/:shipid/new              - új kalóz hozzáadása
+    getShipMW
+    savePirateMW                            - ha nem kap semmit akkor next, ha kap valamit megpróbál menteni, ha mentésnél hiba akkor változókba elmenti és next, ha sikerül akkor visszairányít a kalózok listához
+    renderMW(editpirate.html)               - ha kap valamit akkor azzal feltölti a formot
+
+GET, POST /pirates/:shipid/edit/:pirateid   - kalóz szerkesztése
+    getShipMW
+    getPirateMW
+    savePirateMW
+    renderMW(editpirate.html)
+
+GET /pirates/:shipid/del/:pirateid          - kalóz törlése
+    getShipMW
+    getPirateMW
+    delPirateMW
