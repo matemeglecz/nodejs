@@ -11,10 +11,6 @@ const saveShipMW = require('../middlewares/ship/saveShipMW');
 module.exports = function (app) {
     const objRepo = {};
 
-    app.get('/',
-        getShipsMW(objRepo),
-        renderMW(objRepo, 'index'));
-
     app.use('/new',
         saveShipMW(objRepo),
         renderMW(objRepo, 'editship'));
@@ -48,4 +44,8 @@ module.exports = function (app) {
         getShipMW(objRepo),
         getPirateMW(objRepo),
         delPirateMW(objRepo));
+
+    app.get('/',
+        getShipsMW(objRepo),
+        renderMW(objRepo, 'index'));
 };

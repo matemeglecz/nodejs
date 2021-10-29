@@ -1,0 +1,36 @@
+<%- include('header') -%>
+<div class="container">
+    <div class="row  justify-content-md-left">
+        <div class="col-md-auto align-self-center">
+            <p class="h1">Kalóz módosítás</p>
+        </div>
+    </div>
+        <div class="row">  
+            <form>
+                <div class="mb-3 row">
+                    <label for="Name" class="col-sm-2 col-form-label h3" style="text-align: end;">Name</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="Name" aria-describedby="Name">  
+                    </div>                      
+                </div>
+                <div class="mb-3 row">
+                    <label for="NumberOfParrots" class="col-sm-2 col-form-label h3" style="text-align: end;">Number of Parrots</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="NumberOfParrots" aria-describedby="NumberOfParrots">  
+                    </div> 
+                </div>
+                <div class="mb-3 row">
+                    <label for="LostTeeth"class="col-sm-2 col-form-label h3" style="text-align: end;">Lost Teeth</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" id="LostTeeth" aria-describedby="LostTeeth">  
+                    </div> 
+                </div>
+                <div class="offset-sm-2">
+                    <a href="/pirates/123" type="saveAndBack" class="btn btn-primary ">Save and Back</a>
+                    <a href="/pirates/123" type="back" class="btn btn-primary">Back</a>
+                </div>
+            </form>        
+        </div> 
+    </div>  
+</div>
+<%- include('footer') -%>
