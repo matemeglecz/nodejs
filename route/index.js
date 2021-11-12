@@ -8,8 +8,14 @@ const getShipsMW = require('../middlewares/ship/getShipsMW');
 const delShipMW = require('../middlewares/ship/delShipMW');
 const saveShipMW = require('../middlewares/ship/saveShipMW');
 
+const ShipModel =  require('../models/ship')
+const PirateModel =  require('../models/pirate')
+
 module.exports = function (app) {
-    const objRepo = {};
+    const objRepo = {
+        ShipModel: ShipModel,
+        PirateModel: PirateModel
+    };
 
     app.use('/new',
         saveShipMW(objRepo),
