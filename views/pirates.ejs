@@ -2,10 +2,10 @@
 <div class="container">
     <div class="row  justify-content-md-left">
         <div class="col-md-auto align-self-center">
-            <p class="h1">Kalózok</p>
+            <p class="h1"><%= ship.name %></p>
         </div>
         <div class="col-md-auto align-self-center">
-            <a href="/pirates/123/new" class="btn btn-sm btn-success">New Pirate</a>
+            <a href="/pirates/<%= ship._id%>/new" class="btn btn-sm btn-success">New Pirate</a>
         </div>
     </div>
     <div class="row">
@@ -19,33 +19,23 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">Jani</th>
-                <td>0</td>
-                <td>3</td>
-                <td style="width:30px;white-space: nowrap">
-                    <a href="/pirates/123/edit/123" class="btn btn-sm btn-primary">Edit</a>
-                    <a href="pirates/123/del/123" class="btn btn-sm btn-danger">Delete</a>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">Pisti</th>
-                <td>30</td>
-                <td>30</td>
-                <td style="width:30px;white-space: nowrap">
-                    <a href="/pirates/123/edit/123" class="btn btn-sm btn-primary">Edit</a>
-                    <a href="pirates/123/del/123" class="btn btn-sm btn-danger">Delete</a>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">Sanyi</th>
-                <td>2</td>
-                <td>32</td>
-                <td style="width:30px;white-space: nowrap">
-                    <a href="/pirates/123/edit/123" class="btn btn-sm btn-primary">Edit</a>
-                    <a href="/pirates/123/del/123" class="btn btn-sm btn-danger">Delete</a>
-                </td>
-              </tr>
+              <% pirates.forEach(function(onePirate){ %>
+                <tr>
+                  <th scope="row">
+                    <%= onePirate.name %>
+                  </th>
+                  <td>
+                    <%= onePirate.parrots %>
+                  </td>
+                  <td>
+                    <%= onePirate.lostteeth %>
+                  </td>
+                  <td style="width:30px;white-space: nowrap">
+                      <a href="/pirates/<%= ship._id%>/edit/<%= onePirate._id%>" class="btn btn-sm btn-primary">Edit</a>
+                      <a href="/pirates/<%= ship._id%>/del/<%= onePirate._id%>" class="btn btn-sm btn-danger">Delete</a>
+                  </td>
+                </tr>
+              <% }); %>                
             </tbody>
           </table>
 

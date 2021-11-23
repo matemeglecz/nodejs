@@ -2,31 +2,41 @@
 <div class="container">
     <div class="row  justify-content-md-left">
         <div class="col-md-auto align-self-center">
-            <p class="h1">Hajó módosítás</p>
+            <p class="h1">
+                Hajó 
+                <% if(typeof ship === 'undefined') { %>
+                    létrehozás
+                <%} else {%>
+                    módosítás
+                <% } %>             
+             </p>
         </div>
     </div>
         <div class="row">  
-            <form>
-                <div class="mb-3 row">
+            <form method="POST">
+                <div class="mb-3 row form-group">
                     <label for="Name" class="col-sm-2 col-form-label h3" style="text-align: end;">Name</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" id="Name" aria-describedby="Name">  
+                        <input type="text" required class="form-control" id="name" name="name" aria-describedby="Name" 
+                            value="<%= (typeof ship === 'undefined') ? '' : ship.name %>">  
                     </div>                      
                 </div>
-                <div class="mb-3 row">
+                <div class="mb-3 row form-group">
                     <label for="LastPort" class="col-sm-2 col-form-label h3" style="text-align: end;">LastPort</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" id="LastPort" aria-describedby="Name">  
+                        <input type="number" class="form-control" id="lastport" name="lastport" aria-describedby="LastPort"
+                            value="<%= (typeof ship === 'undefined') ? '' : ship.lastport %>">  
                     </div> 
                 </div>
-                <div class="mb-3 row">
+                <div class="mb-3 row form-group">
                     <label for="NumberOfCannons"class="col-sm-2 col-form-label h3" style="text-align: end;">Number of cannons</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" id="NumberOfCannons" aria-describedby="NumberOfCannons">  
+                        <input type="number" class="form-control" id="cannons" name="cannons" min="0" aria-describedby="NumberOfCannons"
+                            value="<%= (typeof ship === 'undefined') ? '0' : ship.cannons %>">  
                     </div> 
                 </div>
                 <div class="offset-sm-2">
-                    <a href="/" type="saveAndBack" class="btn btn-primary ">Save and Back</a>
+                    <input type="submit" class="btn btn-primary" value="Save and Back" />
                     <a href="/" type="back" class="btn btn-primary">Back</a>
                 </div>
             </form>        

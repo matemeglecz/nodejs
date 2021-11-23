@@ -28,25 +28,26 @@ module.exports = function (app) {
 
     app.get('/del/:shipid',
         getShipMW(objRepo),
+        getPiratesMW(objRepo),
         delShipMW(objRepo));
 
+    app.use('/pirates/:shipid/new',
+        getShipMW(objRepo),
+        savePirateMW(objRepo),
+        renderMW(objRepo, 'editpirate'));
+    
     app.get('/pirates/:shipid',
         getShipMW(objRepo),
         getPiratesMW(objRepo),
         renderMW(objRepo, 'pirates'));
 
-    app.get('/pirates/:shipid/new',
-        getShipMW(objRepo),
-        savePirateMW(objRepo),
-        renderMW(objRepo, 'editpirate'));
-
-    app.get('/pirates/:shipid/edit/:pirateid',
+    app.use('/pirates/:shipid/edit/:pirateid',
         getShipMW(objRepo),
         getPirateMW(objRepo),
         savePirateMW(objRepo),
         renderMW(objRepo, 'editpirate'));
 
-    app.get('/pirates/:shipid/del/:pirateid',
+    app.use('/pirates/:shipid/del/:pirateid',
         getShipMW(objRepo),
         getPirateMW(objRepo),
         delPirateMW(objRepo));
