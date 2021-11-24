@@ -9,8 +9,7 @@
     return function (req, res, next) {
         ShipModel.find({}, (err, ships) => {
             if(err){
-                //return next(err)
-                console.log("nincs ships")
+                return next(err);
             }
         
 

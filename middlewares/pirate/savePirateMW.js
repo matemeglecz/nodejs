@@ -35,7 +35,7 @@
 
         res.locals.pirate.save(err => {
             if(err) {
-                console.log("problem")
+                return next(err)
             }
             
             return res.redirect(`/pirates/${res.locals.ship._id}`);

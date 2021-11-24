@@ -19,3 +19,21 @@ th{
 td{
     vertical-align: middle;
 }
+
+#footer {
+    display: flex;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:30px;
+    justify-content: center;   
+ }
+
+ #footer a{
+     color: azure;
+     opacity: 0.5;
+ }
+
+ #footer a:link {
+    text-decoration: none;
+  }

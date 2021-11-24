@@ -9,10 +9,8 @@
     return function (req, res, next) {
         PirateModel.findOne({_id: req.params.pirateid}, (err, pirate) => {
             if(err || !pirate){
-                //return next(err)
-                console.log("nincs pirate")
-            }
-        
+                return next(err)        
+            }        
 
             res.locals.pirate = pirate
             return next();
