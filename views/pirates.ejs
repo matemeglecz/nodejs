@@ -2,10 +2,10 @@
 <div class="container">
     <div class="row  justify-content-md-left">
         <div class="col-md-auto align-self-center">
-            <p class="h1"><%= ship.name %></p>
+            <h1><%= ship.name %></h1>
         </div>
         <div class="col-md-auto align-self-center">
-            <a href="/pirates/<%= ship._id%>/new" class="btn btn-sm btn-success">New Pirate</a>
+            <a href="/pirates/<%= ship._id%>/new" class="btn btn-md btn-success">New Pirate</a>
         </div>
     </div>
     <div class="row">
@@ -15,7 +15,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Parrots</th>
                 <th scope="col">Lost Teeth</th>
-                <th scope="col"></th>
+                <th class="col-sm-2" scope="col"></th>
               </tr>
             </thead>
             <tbody>
@@ -30,16 +30,16 @@
                   <td>
                     <%= onePirate.lostteeth %>
                   </td>
-                  <td style="width:30px;white-space: nowrap">
-                      <a href="/pirates/<%= ship._id%>/edit/<%= onePirate._id%>" class="btn btn-sm btn-primary">Edit</a>
-                      <a href="/pirates/<%= ship._id%>/del/<%= onePirate._id%>" class="btn btn-sm btn-danger">Delete</a>
+                  <td class="col-sm-2" style="white-space: nowrap">
+                      <a href="/pirates/<%= ship._id%>/edit/<%= onePirate._id%>" class="btn btn-md btn-primary col-sm-6 ">Edit</a>
+                      <a href="/pirates/<%= ship._id%>/del/<%= onePirate._id%>" class="btn btn-md btn-danger col-sm-6">Delete</a>
                   </td>
                 </tr>
               <% }); %>                
             </tbody>
           </table>
 
-          <a href="/" class="btn btn-sm btn-primary col-sm-2">Back to the ships</a>
+          <a href="/" class="btn btn-md btn-primary col-sm-2">Back to the ships</a>
         </div>
     </div>
 </div>

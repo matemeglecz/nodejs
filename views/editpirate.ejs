@@ -1,44 +1,61 @@
 <%- include('header') -%>
 <div class="container">
-    <div class="row  justify-content-md-left">
-        <div class="col-md-auto align-self-center">
-            <p class="h1">
+    <div class="row  justify-content-md-center">
+        <div class="col-md-auto align-self-center offset-sm-2">
+            <h1>
                 Kalóz 
                 <% if(typeof pirate === 'undefined') { %>
                     létrehozás
                 <%} else {%>
                     módosítás
                 <% } %>             
-             </p>
+                </h1>
         </div>
     </div>
         <div class="row">  
             <form method="POST">
-                <div class="mb-3 row form-group">
+                <div class="mb-3 row form-group justify-content-md-center">
                     <label for="Name" class="col-sm-2 col-form-label h3" style="text-align: end;">Name</label>
                     <div class="col-sm-3">
                         <input type="text" class="form-control" id="name" required name="name" aria-describedby="Name"
                         value="<%= (typeof pirate === 'undefined') ? '' : pirate.name %>">  
                     </div>                      
                 </div>
-                <div class="mb-3 row form-group">
+                <div class="mb-3 row form-group justify-content-md-center">
                     <label for="NumberOfParrots" class="col-sm-2 col-form-label h3" style="text-align: end;">Number of Parrots</label>
                     <div class="col-sm-3">
                         <input type="number" min="0" class="form-control" id="parrots" name="parrots" aria-describedby="NumberOfParrots"
                             value="<%= (typeof pirate === 'undefined') ? '0' : pirate.parrots %>">  
                     </div> 
                 </div>
-                <div class="mb-3 row form-group">
+                <div class="mb-3 row form-group justify-content-md-center">
                     <label for="LostTeeth"class="col-sm-2 col-form-label h3" style="text-align: end;">Lost Teeth</label>
                     <div class="col-sm-3">
                         <input type="number" min="0" class="form-control" id="lostteeth" name="lostteeth" aria-describedby="LostTeeth"
                             value="<%= (typeof pirate === 'undefined') ? '0' : pirate.lostteeth %>">  
                     </div> 
                 </div>
-                <div class="offset-sm-2">
-                    <input type="submit" class="btn btn-primary" value="Save and Back"/>
-                    <a href="/pirates/<%= ship._id %>" type="back" class="btn btn-primary">Back</a>
-                </div>
+                <% if(typeof pirate !== 'undefined') { %>
+                    <div class="mb-3 row form-group justify-content-md-center">
+                        <label for="onShip"class="col-sm-2 col-form-label h3" style="text-align: end;">On ship</label>
+                        <div class="col-sm-3">
+                            <select class="form-control" id="onship" name="onship" aria-describedby="OnShip">
+                                <% ships.forEach(function(oneShip) { %>
+                                    <option value="<%= oneShip._id %>" 
+                                        <% if (oneShip._id.valueOf() == ship._id.valueOf()) {  %>
+                                            selected="true"    
+                                        <% } %>>
+                                        <%= oneShip.name %>
+                                    </option>
+                                <% }); %>
+                            </select>                              
+                        </div> 
+                    </div>
+                <% } %>
+                <div class="row offset-sm-2 justify-content-md-center">
+                    <input type="submit" class="btn btn-primary col-sm-2 mr-3" value="Save and Back"/>
+                    <a href="/pirates/<%= ship._id %>" type="back" class="btn btn-primary col-sm-1 mx-3">Back</a>
+                </div>                
             </form>        
         </div> 
     </div>  

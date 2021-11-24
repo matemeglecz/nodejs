@@ -44,6 +44,7 @@ module.exports = function (app) {
     app.use('/pirates/:shipid/edit/:pirateid',
         getShipMW(objRepo),
         getPirateMW(objRepo),
+        getShipsMW(objRepo),
         savePirateMW(objRepo),
         renderMW(objRepo, 'editpirate'));
 

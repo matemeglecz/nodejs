@@ -49,8 +49,9 @@ GET, POST /pirates/:shipid/new              - új kalóz hozzáadása
     renderMW(editpirate.html)               - ha kap valamit akkor azzal feltölti a formot
 
 GET, POST /pirates/:shipid/edit/:pirateid   - kalóz szerkesztése
-    getShipMW
+    getShipMW                           
     getPirateMW
+    getShipsMW                              -a kalózt át lehet tenni másik hajóra
     savePirateMW
     renderMW(editpirate.html)
 

@@ -1,6 +1,6 @@
 /**
  * Elmenti a kalózt az adatbázisba
- * Ha kap egy kalózt akkor update, egyébként újat hoz létre
+ * Ha kap egy kalózt akkor update, ekkor a hajót is lehet módosítani amin van, egyébként újat hoz létre
  * Átrányít a /pirates/:shipip -re, ha sikeres
  */
 
@@ -21,12 +21,17 @@
 
         if(typeof res.locals.pirate === 'undefined') {
             res.locals.pirate = new PirateModel();
+            res.locals.pirate._ship = res.locals.ship._id;     
+        } else if (typeof req.body.onship === 'undefined') { 
+            return next();            
+        } else {
+            res.locals.pirate._ship = req.body.onship;
         }
 
         res.locals.pirate.name = req.body.name;
         res.locals.pirate.parrots = req.body.parrots;
         res.locals.pirate.lostteeth = req.body.lostteeth;
-        res.locals.pirate._ship = res.locals.ship._id;
+           
 
         res.locals.pirate.save(err => {
             if(err) {

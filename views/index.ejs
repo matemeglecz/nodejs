@@ -2,10 +2,10 @@
 <div class="container">
     <div class="row  justify-content-md-left">
         <div class="col-md-auto align-self-center">
-            <p class="h1">Kalózhajók</p>
+            <h1>Kalózhajók</h1>
         </div>
         <div class="col-md-auto align-self-center">
-            <a href="/new" class="btn btn-sm btn-success">New ship</a>
+            <a href="/new" class="btn btn-md btn-success">New ship</a>
         </div>
     </div>
     <div class="row">
@@ -23,7 +23,7 @@
               <% ships.forEach(function(oneShip) { %>
                 <tr>
                   <td style="width:30px;white-space: nowrap ">
-                      <a href="/pirates/<%= oneShip._id %> " class="btn btn-sm btn-primary">Crew</a>
+                      <a href="/pirates/<%= oneShip._id %> " class="btn btn-md btn-primary">Crew</a>
                   </td>
                   <th scope="row">
                     <%= oneShip.name %> 
@@ -34,9 +34,9 @@
                   <td>
                     <%= oneShip.cannons %> 
                   </td>
-                  <td style="width:30px;white-space: nowrap">
-                      <a href="/edit/<%= oneShip._id %>" class="btn btn-sm btn-primary">Edit</a>
-                      <a href="/del/<%= oneShip._id %>" class="btn btn-sm btn-danger">Delete</a>
+                  <td class="col-sm-2" style="white-space: nowrap">
+                      <a href="/edit/<%= oneShip._id %>" class="btn btn-md btn-primary col-sm-6">Edit</a>
+                      <a href="/del/<%= oneShip._id %>" class="btn btn-md btn-danger col-sm-6">Delete</a>
                   </td>
                 </tr>
               <% }); %>              
