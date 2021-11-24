@@ -1,0 +1,50 @@
+<%- include('header') -%>
+<div class="container">
+    <div class="row  justify-content-md-left">
+        <div class="col-md-auto align-self-center">
+            <h1>Kalózhajók</h1>
+        </div>
+        <div class="col-md-auto align-self-center">
+            <a href="/new" class="btn btn-md btn-success">New ship</a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped table-bordered table-dark">
+            <thead>
+              <tr class="table-dark">
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">Last port</th>
+                <th scope="col">Number of cannons</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% ships.forEach(function(oneShip) { %>
+                <tr>
+                  <td style="width:30px;white-space: nowrap ">
+                      <a href="/pirates/<%= oneShip._id %> " class="btn btn-md btn-primary">Crew</a>
+                  </td>
+                  <th scope="row">
+                    <%= oneShip.name %> 
+                  </th>
+                  <td>
+                    <%= oneShip.lastport %> 
+                  </td>
+                  <td>
+                    <%= oneShip.cannons %> 
+                  </td>
+                  <td class="col-sm-2" style="white-space: nowrap">
+                      <a href="/edit/<%= oneShip._id %>" class="btn btn-md btn-primary col-sm-6">Edit</a>
+                      <a href="/del/<%= oneShip._id %>" class="btn btn-md btn-danger col-sm-6">Delete</a>
+                  </td>
+                </tr>
+              <% }); %>              
+            </tbody>
+          </table>
+        </div>
+    </div>
+</div>
+
+<%- include('footer') -%>
+

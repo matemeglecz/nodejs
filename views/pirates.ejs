@@ -1,0 +1,46 @@
+<%- include('header') -%>
+<div class="container">
+    <div class="row  justify-content-md-left">
+        <div class="col-md-auto align-self-center">
+            <h1><%= ship.name %></h1>
+        </div>
+        <div class="col-md-auto align-self-center">
+            <a href="/pirates/<%= ship._id%>/new" class="btn btn-md btn-success">New Pirate</a>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped table-bordered table-dark">
+            <thead>
+              <tr class="table-dark">
+                <th scope="col">Name</th>
+                <th scope="col">Parrots</th>
+                <th scope="col">Lost Teeth</th>
+                <th class="col-sm-2" scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% pirates.forEach(function(onePirate){ %>
+                <tr>
+                  <th scope="row">
+                    <%= onePirate.name %>
+                  </th>
+                  <td>
+                    <%= onePirate.parrots %>
+                  </td>
+                  <td>
+                    <%= onePirate.lostteeth %>
+                  </td>
+                  <td class="col-sm-2" style="white-space: nowrap">
+                      <a href="/pirates/<%= ship._id%>/edit/<%= onePirate._id%>" class="btn btn-md btn-primary col-sm-6 ">Edit</a>
+                      <a href="/pirates/<%= ship._id%>/del/<%= onePirate._id%>" class="btn btn-md btn-danger col-sm-6">Delete</a>
+                  </td>
+                </tr>
+              <% }); %>                
+            </tbody>
+          </table>
+
+          <a href="/" class="btn btn-md btn-primary col-sm-2">Back to the ships</a>
+        </div>
+    </div>
+</div>
+<%- include('footer') -%>
