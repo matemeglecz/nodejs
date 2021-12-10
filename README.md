@@ -1,8 +1,9 @@
-Szerveroldali javascript kurzushoz tartozó házi. 2021
+# Szerveroldali javascript kurzushoz tartozó házi. 2021
+![image](https://user-images.githubusercontent.com/58141904/145632565-97e6909e-0b98-479f-8193-86815cd7cf7b.png)
 
-Specifikacio:
 
-Kalózok és Kalózhajók
+### Specifikáció:
+### Kalózok és Kalózhajók
 
 A programban kalózhajók és a rajtuk levő kalózok tárolására van lehetőség. Minden kalózhajóról 
 (a legénységén kívül) tároljuk a nevét, hogy melyik kikötőben látták utoljára és hogy hány ágyúja 
